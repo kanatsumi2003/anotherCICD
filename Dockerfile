@@ -2,7 +2,7 @@ FROM openjdk:20-jdk
 
 WORKDIR /app
 
-COPY out/artifacts/ZooManagementSystem_jar/ZooManagementSystem.jar app.jar
+COPY out/artifacts/ZooManagementSystem_jar /app
 EXPOSE 8080
 
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app/ZooManagementSystem.jar"]
