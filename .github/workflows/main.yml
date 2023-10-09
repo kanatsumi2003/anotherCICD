@@ -48,6 +48,19 @@ jobs:
           push: true
           tags: kanatsumi2003/springboot-demo:latest
 
+      - name: Deploy to EC2 instance
+        uses: bitovi/github-actions-deploy-docker-to-ec2@v0.5.8
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_default_region: ap-southeast-1a
+
+          docker_image: your-docker-image:latest
+          ec2_instance_id: i-0f37f834f9cf332dd
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_user: your-ssh-user
+
+
 #      -
 #        name: Checkout
 #        uses: actions/checkout@v3
