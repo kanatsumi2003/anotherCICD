@@ -48,16 +48,21 @@ jobs:
           push: true
           tags: kanatsumi2003/springboot-demo:latest
 
-      - name: Deploy to EC2 instance
-        uses: bitovi/github-actions-deploy-docker-to-ec2@v0.5.8
-        with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_default_region: ap-southeast-1a
-          dot_env: ${{ secrets.DOT_ENV }}
+  deploy:
+    needs: buildx
+    runs-on: [aws-ec2-CD]
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull kanatsumi2003/springboot-demo:latest
+      - name: Delete old container
+        run: docker rm -f springboot-demo-container
+      - name: Run docker container
+        run: docker run -d -p 8080:8080 -name springboot-demo-container kanatsumi2003/springboot-demo
 
 
-#      -
+
+
+        #      -
 #        name: Checkout
 #        uses: actions/checkout@v3
 #      -
