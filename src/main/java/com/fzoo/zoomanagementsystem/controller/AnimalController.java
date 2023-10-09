@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("Animal")
 public class AnimalController {
-@GetMapping
+    @GetMapping
     public String animal(){
-    return "Hello";
-}
+        return "Hello";
+    }
+    @GetMapping("v1")
+    public String animal1(){
+        return "Hello";
+    }
+
 }
