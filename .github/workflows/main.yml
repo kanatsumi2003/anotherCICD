@@ -50,7 +50,7 @@ jobs:
 
   deploy:
     needs: buildx
-    runs-on: [aws-ec2-CD]
+    runs-on: aws-ec2-CD
     steps:
       - name: Pull image from docker hub
         run: docker pull kanatsumi2003/springboot-demo:latest
