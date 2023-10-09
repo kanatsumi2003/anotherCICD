@@ -56,7 +56,8 @@ jobs:
           aws_default_region: ap-southeast-1a
 
           docker_image: springboot-demo:latest
-          ec2_instance_id: i-0f37f834f9cf332dd
+
+
 #      -
 #        name: Checkout
 #        uses: actions/checkout@v3
