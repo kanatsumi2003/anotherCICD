@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  app:
+    container_name: kanatsumi2003/springboot-demo
+    build: .
+    restart: always
+
+    volumes:
+      - .:/app
+
